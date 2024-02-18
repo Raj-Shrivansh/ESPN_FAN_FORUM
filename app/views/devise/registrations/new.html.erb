@@ -1,0 +1,27 @@
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<h2 class="text-center">Sign up</h2>
+<div class="row mb-3">
+  <%= f.label :"Email :",class:"col-sm-2 col-form-label"%>
+  <div class="col-sm-10">
+      <%= f.email_field :email,class:"form-control",required:true,placeholder:"Enter email"%>
+    </div>
+</div>
+<div class="row mb-3">
+  <%= f.label :"Password :",class:"col-sm-2 col-form-label"%>
+  <div class="col-sm-10">
+      <%= f.password_field :password,class:"form-control",required:true,placeholder:"Enter Password"%>
+    </div>
+</div>
+<div class="row mb-3">
+  <%= f.label :"Confirm Password :",class:"col-sm-2 col-form-label"%>
+  <div class="col-sm-10">
+      <%= f.password_field :password_confirmation,class:"form-control",required:true%>
+    </div>
+</div>
+<div class="d-grid gap-2 col-6 mx-auto">
+<%= f.submit "Signup",class:"btn btn-info"%>
+<%= render "devise/shared/links" %>
+<%= link_to 'Back',root_path,class:"btn btn-danger"%>
+</div>
+
+<% end %>

@@ -1,0 +1,29 @@
+<h2 class="text-center">Add New Message</h2>
+<%= simple_form_for(@message) do |form| %>
+<div class="row mb-3">
+    <%= form.label :"Title :",class:"col-sm-2 col-form-label"%>
+    <div class="col-sm-10">
+      <%= form.text_field :title,class:"form-control",placeholder:"Enter Message title :",required: true%>
+      <% if @message.errors.any? %>
+        <% @message.errors.full_messages_for(:title).each do |msg| %>
+            <p style="color:red;font-size:1rem"><%= msg %></p>
+        <% end %>
+        <% end %>
+    </div>
+</div>
+<div class="row mb-3">
+    <%= form.label :"Description :",class:"col-sm-2 col-form-label"%>
+    <div class="col-sm-10">
+      <%= form.text_area :desc,class:"form-control",placeholder:"Enter Message :",required: true,rows: 10,cols: 10%>
+      <% if @message.errors.any? %>
+        <% @message.errors.full_messages_for(:desc).each do |msg| %>
+            <p style="color:red;font-size:1rem"><%= msg %></p>
+        <% end %>
+        <% end %>
+    </div>
+</div>
+<div class="d-grid gap-2 col-6 mx-auto">
+<%= form.submit "Fix Message",class:"btn btn-info"%>
+<%= link_to 'Back', message_path, class: "btn btn-secondary" %>
+</div>
+<% end %>

@@ -1,0 +1,7 @@
+<%= simple_form_for([@message,@message.comments.build] ) do |f| %>
+<div class="mb-3">
+    <%= f.label :"comment :",class:"form-label"%>
+    <%= f.text_field :content,class:"form-control",require: true%>
+  </div>
+<%= f.submit "comment",class:"btn btn-primary"%>
+<% end %>
